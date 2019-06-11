@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template="../forms-template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                    
+    <ui:define name="col-left">
+         <h:outputText value="Numero de avion: "/>
+            <h:inputText value="#{avionesController.aviones.numeroAvion}"
+                         validator="numerosValidator" disabled="true"/>
+            <h:outputText value="Aerolinea: "/>
+            <h:inputText value="#{avionesController.aviones.aerolinea}"
+                         validator="palabrasValidator"/>
+         <h:outputText value="Capacidad de pasajeros: "/>
+            <h:inputText value="#{avionesController.aviones.capacidadPasajeros}"
+                         size="4"
+                         validator="numerosValidator"/>
+            <br></br>
+            <h:outputText value="Modelo: "/>
+            <h:inputText value="#{avionesController.aviones.modelo}"
+                         validator="codigoValidator"/>
+    </ui:define>
+    
+    <ui:define name="center">
+       
+            
+    </ui:define>
+    
+    <ui:define name="col-right">
+        
+        <h:commandButton class="btn btn-info" value="Guardar" action="#{avionesController.update()}"/>
+            <h:commandButton class="btn btn-light" value="Regresar" action="/Aviones/avionesList" immediate="true"/>
+
+        
+    </ui:define>
+    
+</ui:composition>
+    
+            
+            
+            
+           
+            
+            
+            
+

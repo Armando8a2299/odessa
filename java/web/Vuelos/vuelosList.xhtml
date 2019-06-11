@@ -1,0 +1,79 @@
+<ui:composition template="../table-template.xhtml" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"> 
+             
+    <ui:define name="content">
+        <h1>Lista de Vuelos</h1>
+        <h:form>
+            <h:dataTable value="#{vuelosController.findAll()}" var="v" border="5">
+                <h:column>
+                    <f:facet name="header">Numero de Vuelo</f:facet>
+                    #{v.numeroVuelo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Numero de Avion</f:facet>
+                    #{v.numeroAvion.numeroAvion}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Origen</f:facet>
+                    #{v.origen.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Destino</f:facet>
+                    #{v.destino.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Fecha de inicio</f:facet>
+                    <h:outputText value="#{v.fechaInicioVuelo}">
+                        <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Fecha de fin</f:facet>
+                    <h:outputText value="#{v.fechaFinVuelo}">
+                        <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Hora de inicio</f:facet>
+                    <h:outputText value="#{v.horaInicioVuelo}">
+                        <f:convertDateTime type="time" pattern="h:mm aa"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Hora de fin</f:facet>
+                    <h:outputText value="#{v.horaFinVuelo}">
+                        <f:convertDateTime type="time" pattern="h:mm aa"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <p:commandButton  action="#{vuelosController.prepareEdit(v)}" icon="fa fa-pencil"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Eliminar</f:facet>
+                    <p:commandButton  icon="fa fa-trash"
+                                     action="#{vuelosController.prepararEliminar(v)}" 
+                                     rendered="#{!vuelosController.flag(v)}"/>
+                    <h:commandButton value="Si" 
+                                     rendered="#{vuelosController.flag(v)}" 
+                                     action="#{vuelosController.delete()}"/>
+                    <h:commandButton value="No" 
+                                     rendered="#{vuelosController.flag(v)}" 
+                                     action="#{vuelosController.mainClean('vuelosList')}"/>
+                </h:column>
+                
+                <f:facet name="footer">
+                    <p:commandButton class="btn btn-success"  action="/index" immediate="true" icon="fa fa-arrow-left"/>
+                    <p:commandButton class="btn btn-primary"  action="#{vuelosController.mainClean('vuelosAlta')}" icon="fa fa-plus"/>
+                </f:facet>
+                
+            </h:dataTable>
+            
+            
+        </h:form>
+    </ui:define>
+    
+</ui:composition>

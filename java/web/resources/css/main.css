@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2/05/2019, 10:48:59 AM
+    Author     : CDIS
+*/
+
+body{
+    background-color: #457B9D;
+}
+
+/*************HEADER******************/
+#header{
+    height: 150px; 
+    background-color: #1D3557; 
+}
+
+.title h1{
+    padding-top: 30px;
+    color: #A8DADC;
+}
+
+/************Message******************/
+
+.info{
+    color: blue;
+}
+
+.error{
+    color: #dc3545;
+    
+}
+
+/**************LOGIN******************/
+#login-form h1{
+    color: #c5c3c6;
+    margin-top: 15px;
+    font-weight: bolder;
+}
+
+#login-form{
+    margin-top: 100px;
+    background-color: #46494c;
+}
+/*************FOOTER******************/
+#footer{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    background-color: #1D3557;
+    color: #A8DADC;
+}
+
+/*************TABLE******************/
+table{
+    color: #F1FAEE; 
+}
+
+thead{
+    background-color: #F1FAEE; 
+    color: #1D3557;
+}
+
+tbody tr:hover{
+    background-color: #E63946;
+    color: black; 
+    cursor: pointer; 
+}
